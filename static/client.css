@@ -1,0 +1,52 @@
+body {
+  font-size: 3vh;
+}
+
+div {
+  width: 100%;
+}
+
+input {
+  font-size: 3vh;
+  height: 1.3em;
+}
+
+div.data_list {
+  overflow: hidden;
+  height: 10%;
+  transition: height 0.3s;
+}
+
+div.data_list:focus, div.data_list:hover {
+  max-height: 70vh;
+  height: auto;
+  overflow-y: auto;
+  transition: height 0.3s;
+}
+
+#reader button {
+  font-size: 2vh;
+}
+
+/* comportamiento  responsive */
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.switch-col {
+  order: 1; /* Cambiar el orden en modo horizontal */
+}
+
+/* Media query para tamaños de pantalla horizontales */
+@media (min-width: 1024px) {
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .switch-col {
+    order: 2; /* Restaurar el orden original en modo horizontal */
+  }
+}
