@@ -1,3 +1,5 @@
+console.log("Cargando qr_scan.js...");
+
 var qrboxFunction = function(viewfinderWidth, viewfinderHeight) {
     let minEdgePercentage = 0.7; // 70%
     let minEdgeSize = Math.min(viewfinderWidth, viewfinderHeight);
@@ -18,3 +20,5 @@ function onScanSuccess(decodedText, decodedResult) {
 }
 
 html5QrcodeScanner.render(onScanSuccess);
+
+console.log("Script qr_scan.js cargado.");

@@ -64,6 +64,9 @@
                 <?php
                 echo $form;
                 ?>
+                <script>
+                    console.log("Formulario '<?= $needed_form ?>' cargado para tabla '<?= $tabla ?>'");
+                </script>
             </div>
         </div>
 
@@ -71,7 +74,7 @@
             <!-- Container para el scanner -->
             <div style="height: 500px">
                 <h4>QR scan</h4>
-                <div id="reader"></div>
+                <div id="reader">reader placeholder</div>
             </div>
         </div>
     </div>

@@ -4,3 +4,6 @@
     $password = "20madygraf23";
     $dbname = "madydb";
 ?>
+<script>
+    console.log("Parametros de conexion a db cargados para usuario '<?= $username ?>' en esquema '<?= $dbname ?>'");
+</script>
