@@ -49,7 +49,6 @@ function GuardarEnConexion($datosAGuardar, $connVar) {
     }
 }
 
-
 // Conexión a la base de datos
 require './connection_params.php';
 

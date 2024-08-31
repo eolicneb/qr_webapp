@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mady-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - mady-mysql-data:/var/lib/mysql
+      - ./init-scripts:/docker-entrypoint-initdb.d
+#    ports:
+#      - "3306:3306"  # TODO: No exponer cuando esté en producción
+
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: php:7.4-apache
+    container_name: mady-web
+    volumes:
+      - ./www:/var/www/html
+    ports:
+      - "80:80"
+    depends_on:
+      - mysql
+    environment:
+      MYSQL_HOST: ${MYSQL_HOST}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+
+volumes:
+  mady-mysql-data:

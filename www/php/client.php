@@ -6,10 +6,7 @@
     if ($conn->connect_error) {
         die("Error en la conexión: " . $conn->connect_error);
     }
-    $needed_form = "form1.php";
-    if (array_key_exists("form", $_GET)) {
-        $needed_form = htmlspecialchars($_GET['form']) . ".php";
-    }
+    $needed_form = array_key_exists("form", $_GET) ? htmlspecialchars($_GET['form']) . ".php" : "form1.php";
 
     ob_start();
     // importa la variable $tabla y el html del form
@@ -22,6 +19,7 @@
 
     $conn->close();
 ?>
+
 <!DOCTYPE html>
 <head>
     <link rel="icon" type="image/png" href="/static/mady_icon.png">
@@ -34,7 +32,7 @@
 <body>
     <div class="container">
         <div class="main-col">
-            <!-- div class="data_list">
+            <div class="data_list">
                 <div class="data_list_title">
                     <h3>Items en <?= $tabla ?></h3>
                 </div>
@@ -54,7 +52,7 @@
                         echo "No se encontraron resultados.";
                     }
                 ?>
-            </div -->
+            </div>
 
             <!-- Container para los formularios -->
             <div class="form_container">
